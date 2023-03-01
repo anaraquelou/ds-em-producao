@@ -30,7 +30,7 @@ Rossmann is one of the largests drug store chains in Europe owning over 3,000 st
 ### 3.3. Process
 The solution process is based in CRISP-DM methodology, which stands for Cross Industry Process - Data Mining. It was developed by a consortium of over 200 interested organizations and it is flexible to suit many analytical methods such as Data Science.Launched in 1999 it is until today by far the most widely-used analytics process standard. It is originally composed by six phases, but the version used here in this project it is extended to ten.
 
-<img src="CRISP-DS.png" style="zoom:100%;" />
+<img src="img/CRISP-DS.png" style="zoom:100%;" />
 
     
 # 4. Data Collect
