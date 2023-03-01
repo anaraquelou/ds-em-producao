@@ -1,6 +1,10 @@
-<img src="rossmann-logo.png" style="zoom:100%;" />
-# Rossamnn Sales Prediction Project
+<img align="right" width="100" height="100" src="img/rossmann-logo.png"/>
+
+# Rossmann Sales Prediction Project
+
 Insights Project
+
+## 1. Business Problem
 ## 1. Business Problem
 Rossmann is one of the largests drug store chains in Europe owning over 3,000 stores across Germany, Poland, Hungary, the Czech Republic, Turkey, Albania, Kosovo. This problem set was coming from a Kaggle competition driven by Rossmann itself in 2015. The main goal was to predict each store daily sales for up to six weeks in advance. The dataset contains sales from 1115 stores in diferent days from 0101010 to 010101, and other factors such as holidays, promotions and competion.
 
