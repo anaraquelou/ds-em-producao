@@ -7,50 +7,31 @@ Insights Project
 ## 1. Business Problem
 Sales forecasting refers to the process of estimating demand for or sales of over a specific period of time. It can improve financial performance of any kind of business and in a major company as Rossmann it is particular import because any variation in demand could impact all stores at once. A accurate sales forecast could reduce stock and wast, as well as in-store availability issues.
 
-Rossmann is one of the largests drug store chains in Europe owning over 3,000 stores across Germany, Poland, Hungary, the Czech Republic, Turkey, Albania, Kosovo. This problem set was coming from a Kaggle competition driven by Rossmann itself in 2015. The main goal was to predict each store daily sales for up to six weeks in advance. The dataset contains sales from 1115 stores in diferent days from 0101010 to 010101, and other factors such as holidays, promotions and competion.
+Rossmann is one of the largests drug store chains in Europe owning over 3,000 stores across Germany, Poland, Hungary, the Czech Republic, Turkey, Albania, Kosovo. This problem set was coming from a Kaggle competition driven by Rossmann itself in 2015. The main goal was to predict each store daily sales for up to six weeks in advance. The dataset contains sales from 1115 stores in diferent days from 2013-01-01 to 2015-07-31, and other factors such as holidays, promotions and competion.
 
 | Main Question |
 | --- |
 | What will be the sales day by day in each store for next six weeks? |
 
 ## 2. Business Assumptions
-- Localization is an important attribute for the purchase price, in this project the zipcode is considered a region in the map with a group of houses.
-- The profit is calculated between the selling price and the purchase price as below:
-    
-    $Profit = Selling Price - Purchase Price$
-    
-    It is not being taken in consideration any other earnings or costs the company may have.
-    
-- A good condition is represented by ‘condition’ equal to 3, 4 and 5, while a bad condition is represented by 1 and 2.
-- There are four seasons, each one lats three whole months as follow:
-    - Spring: March, April, May
-    - Summer: June, July, August
-    - Fall: September, October, November
-    - Winter: December, January, February
-- Houses never renovated are the houses in which the value at the column ‘yr_renovated’ is equal to zero.
+- XXXX
+
 
 ## 3. Solution Strategy
 ### 3.1. Final Product
-- Report with the houses reccomended and the purchase price (csv file).
-- Report with suggestes selling price for each house and when to buy it (csv file).
+- Report in a csv file with sales day by day for each store of the company.
+- A application that could be accessed by any store manager at any time and returns intantaneously the sales prediction for the store desired.
 ### 3.2. Tools
 - Python
 - Pycharm
 - Jupyter Notebook
-- Heroku
+- Render
+- Telegram
 ### 3.3. Process
-#### 3.3.1. Data Collect:
-- Collect data from kaggle and search for error and outliers to remove
-#### 3.3.2. Data Exploration:
-- Create and test hypothesis to find insights for the business team
-#### Solution for Product 01:
-- Group dataset by zipcode and calculate the median price.
-- The suggestion is to buy all the properties with price less than the region median price.
-#### Solution for Product 02:
-- Calculated the new median price by zipcode and season —> Each zipcode will have four median prices, for each season.
-- Conditions to determine the selling price:
-    - Purchase price < new median price —> Selling price = Purchase price + 30%
-    - Purchase price > new median price —> Selling price = Purchase price + 10%
+The solution process is based in CRISP-DM methodology, which stands for Cross Industry Process - Data Mining. It was developed by a consortium of over 200 interested organizations and it is flexible to suit many analytical methods such as Data Science.Launched in 1999 it is until today by far the most widely-used analytics process standard. It is originally composed by six phases, but the version used here in this project it is extended to ten.
+
+<img src="CRISP-DS.png" style="zoom:100%;" />
+
     
 # 4. Data Collect
 
@@ -141,4 +122,6 @@ The next steep would be to calculate when is more profitable to sell the house. 
 [https://www.kaggle.com/competitions/rossmann-store-sales](https://www.kaggle.com/competitions/rossmann-store-sales)
 
 [https://www.theretailbulletin.com/retail-solutions/case-study-rossmann-successful-supply-chain-coronavirus-crisis-management-11-12-2020/](https://www.theretailbulletin.com/retail-solutions/case-study-rossmann-successful-supply-chain-coronavirus-crisis-management-11-12-2020/)
+
+[https://www.forbes.com/sites/metabrown/2015/07/29/what-it-needs-to-know-about-the-data-mining-process/?sh=6fe236bb515f](https://www.forbes.com/sites/metabrown/2015/07/29/what-it-needs-to-know-about-the-data-mining-process/?sh=6fe236bb515f)
 
