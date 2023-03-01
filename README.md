@@ -1,11 +1,10 @@
-# House Rocket Project
+<img src="HP-logo-Rossmann.webp" style="zoom:100%;" />
+# Rossamnn Sales Prediction Project
 Insights Project
 ## 1. Business Problem
-House Rocket is a ficticional company speacialized in buying and selling houses online. The company acts like a middleman between the seller and a future buyer. The main difference between this type of company and a traditional real state process is that the company actually owns the house before selling to someone else. The company offers a much simpler and faster way to sell a house than traditional real state process, in exchange usually the company offers a price lower than the market value and/or charges a fee to the transaction.
+Rossmann is one of the largests drug store chains in Europe owning over 3,000 stores across Germany, Poland, Hungary, the Czech Republic, Turkey, Albania, Kosovo. This problem set was coming from a Kaggle competition driven by Rossmann itself in 2015. The main goal was to predict each store daily sales for up to six weeks in advance. The dataset contains sales from 1115 stores in diferent days from 0101010 to 010101, and other factors such as holidays, promotions and competion.
 
-In order to be competitive the company has to buy good houses for a lower price and sell them as soon as possible for the market value. Therefore, the company’s earnings rely on the difference between the selling price and the purchace price, the greater the difference, the greater is the profit.
-
-Since the company is growing as well as its portfolio, the time to analyse the best opportunites has increased significantly. House Rocket has reached out a data science consultancy to built a tool to adress this issue. Thus, the main questions House Rocket want answered quickly bu this new tool are:
+Sales forecasting refers to the process of estimating demand for or sales of over a specific period of time. It can improve financial performance of any kind of business and in a major company as Rossmann it is particular import because any variation in demand could impact all stores at once. A accurate sales forecast could reduce stock and wast, as well as in-store availability issues.
 
   1. *What are the houses the company should buy and for what price?*
   2. *What is the best moment do sell them and for what price?*
@@ -135,11 +134,7 @@ The next steep would be to calculate when is more profitable to sell the house. 
 
 # 10. References
 
-[https://www.kaggle.com/datasets/harlfoxem/housesalesprediction](https://www.kaggle.com/datasets/harlfoxem/housesalesprediction)
+[https://www.kaggle.com/competitions/rossmann-store-sales](https://www.kaggle.com/competitions/rossmann-store-sales)
 
-[Predicting King County House Prices (slideshare.net)](https://www.slideshare.net/PawanShivhare1/predicting-king-county-house-prices)
-
-[Opendoor, Zillow, and the iBuyer Business Model  — Mike DelPrete - Real Estate Tech Strategist (mikedp.com)](https://www.mikedp.com/opendoor-ibuyer-business-model)
-
-[iBuyer: Unsustainable business model, time to pivot. (linkedin.com)](https://www.linkedin.com/pulse/ibuyer-unsustainable-business-model-time-pivot-susan-joynt?trk=public_profile_article_view)
+[https://www.theretailbulletin.com/retail-solutions/case-study-rossmann-successful-supply-chain-coronavirus-crisis-management-11-12-2020/](https://www.theretailbulletin.com/retail-solutions/case-study-rossmann-successful-supply-chain-coronavirus-crisis-management-11-12-2020/)
 
