@@ -1,4 +1,4 @@
-<img src="HP-logo-Rossmann.webp" style="zoom:100%;" />
+<img src="rossmann-logo.png" style="zoom:100%;" />
 # Rossamnn Sales Prediction Project
 Insights Project
 ## 1. Business Problem
