@@ -9,8 +9,9 @@ Sales forecasting refers to the process of estimating demand for or sales of ove
 
 Rossmann is one of the largests drug store chains in Europe owning over 3,000 stores across Germany, Poland, Hungary, the Czech Republic, Turkey, Albania, Kosovo. This problem set was coming from a Kaggle competition driven by Rossmann itself in 2015. The main goal was to predict each store daily sales for up to six weeks in advance. The dataset contains sales from 1115 stores in diferent days from 0101010 to 010101, and other factors such as holidays, promotions and competion.
 
-|Main Question|
-|What will be the sales day by day in each store for next six weeks?|
+| Main Question |
+| --- |
+| What will be the sales day by day in each store for next six weeks? |
 
 ## 2. Business Assumptions
 - Localization is an important attribute for the purchase price, in this project the zipcode is considered a region in the map with a group of houses.
