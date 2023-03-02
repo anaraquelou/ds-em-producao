@@ -101,14 +101,10 @@ From all hypothesis, it will only be taken in consideration those who have data 
 
 | 01 - Stores with the closest competitors sell more |
 | <img src="img/hyp01.png" style="zoom:60%;" /> |
-| 02 - Stores with long time competitors sell less |
-| <img src="img/hyp02.png" style="zoom:60%;" /> |
-| 03 - Stores with longer time in promotion sell less |
-| <img src="img/hyp02.png" style="zoom:60%;" /> |
-| 04 - Stores sell less with by the year |
-| <img src="img/hyp04.png" style="zoom:60%;" /> |
-| 05 - Stores sell less in the second semester of the year. |
-| <img src="img/hyp05.png" style="zoom:60%;" /> |
+| 02 - Stores with long time competitors sell less | 03 - Stores with longer time in promotion sell less |
+| <img src="img/hyp02.png" style="zoom:60%;" /> | <img src="img/hyp02.png" style="zoom:60%;" /> |
+| 04 - Stores sell less with by the year |05 - Stores sell less in the second semester of the year. |
+| <img src="img/hyp04.png" style="zoom:60%;" /> | <img src="img/hyp05.png" style="zoom:60%;" /> |
 
 
 # 6. Machine Learning Model Applied
