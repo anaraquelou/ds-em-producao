@@ -99,11 +99,16 @@ A mindmap of hypothesis was created together with business team (marketing, sale
 
 From all hypothesis, it will only be taken in consideration those who have data available. Thus, hypothesis about customers or location were not added to the analysis. A total of 10 hypothesis we evaluated and at the end we could validate 5 important insights.
 
-| 01 - Stores with the closest competitors sell more |
+| Hypothesis 01 - Stores with the closest competitors sell more |
+| --- |
 | <img src="img/hyp01.png" style="zoom:60%;" /> |
-| 02 - Stores with long time competitors sell less | 03 - Stores with longer time in promotion sell less |
-| <img src="img/hyp02.png" style="zoom:60%;" /> | <img src="img/hyp02.png" style="zoom:60%;" /> |
-| 04 - Stores sell less with by the year |05 - Stores sell less in the second semester of the year. |
+
+| Hypothesis 02 - Stores with long time competitors sell less | Hypothesis 03 - Stores with longer time in promotion sell less |
+| --- | --- |
+| <img src="img/hyp02.png" style="zoom:60%;" /> | <img src="img/hyp03.png" style="zoom:60%;" /> |
+
+| Hypothesis 04 - Stores sell less with by the year | Hypothesis 05 - Stores sell less in the second semester of the year. |
+| --- | --- |
 | <img src="img/hyp04.png" style="zoom:60%;" /> | <img src="img/hyp05.png" style="zoom:60%;" /> |
 
 
