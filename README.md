@@ -9,9 +9,13 @@ Sales forecasting refers to the process of estimating demand for or sales of ove
 
 Rossmann is one of the largests drug store chains in Europe owning over 3,000 stores across Germany, Poland, Hungary, the Czech Republic, Turkey, Albania, Kosovo. This problem set was coming from a Kaggle competition driven by Rossmann itself in 2015. The main goal was to predict each store daily sales for up to six weeks in advance. The dataset contains sales from 1115 stores in diferent days from 2013-01-01 to 2015-07-31, and other factors such as holidays, promotions and competion.
 
-| Main Question |
-| --- |
-| What will be the sales day by day in each store for next six weeks? |
+As part of "DS em Produção" course in "Comunidade DS" this problem was incremented with some more **fictional data** as is descripted below:
+
+"Pretend you are a data scientist in Rossmann company. Suddenly a lot of messages pops up at your screen, reading all you figured out they all have the same demading: the store sales prediction for 6 weeks in advance. It seems all store managers were asked by the CFO of the company to have this prediction by the end of the month. You go talk to the CFO to undertand what is the real problem and if this prediction it is the bst solution. CFO tells you that Rossmann is going throught an expansion and needs to estimate accurately the amount of money they will loan from banks, they plan to use the part of the income from the next 6 weeks as part of the expansion investment. After that you agreed that the prediction makes sense and you can create a unique solution for all the stores. He went thrilled by the idea and also ask you to create a way the solution could be accessed by any store manager at any time and returns intantaneously the sales prediction for the store, so they can use in other occasions."
+
+| Problem | Root Cause | Main Question |
+| --- | --- | --- |
+| How much money company need to loan | Company expansions | What will be the sales day by day in each store for next six weeks? |
 
 ## 2. Business Assumptions
 - XXXX
@@ -23,7 +27,6 @@ Rossmann is one of the largests drug store chains in Europe owning over 3,000 st
 - A application that could be accessed by any store manager at any time and returns intantaneously the sales prediction for the store desired.
 ### 3.2. Tools
 - Python
-- Pycharm
 - Jupyter Notebook
 - Render
 - Telegram
@@ -32,47 +35,53 @@ The solution process is based in CRISP-DM methodology, which stands for Cross In
 
 <img src="img/CRISP-DS.png" style="zoom:100%;" />
 
+Step 01: Data description
+Step 02: Feature engineering
+Step 03: Variable filtering
+Step 04: Exploratory data analysis
+Step 05: Data preparation
+Step 06: Feature selection
+Step 07: Machine learning modelling
+Step 08: Hyperparameter fine tunning
+Step 09: Error evaluation and interpretation
+Step 10: Deploy model to production
     
 # 4. Data Collect
 
-- **About the dataset collected from Kaggle: [Link](https://www.kaggle.com/datasets/harlfoxem/housesalesprediction‘)**
+- **Dataset was collected from Kaggle: [here](https://www.kaggle.com/competitions/rossmann-store-sales‘)**
     
-    This dataset contains house sale prices for King County, which includes Seattle. It includes homes sold between May 2014 and May 2015.
+	It contains sales for 1,115 Rossmann stores. Some stores in the dataset were temporarily closed for refurbishment.
     
-- **The dataset has 21 attributes listed below:**
+- **The dataset has 19 attributes listed below:**
 
 | Item | Description |
 | --- | --- |
-| id | Unique ID for each home sold |
-| date | Date of the home sale |
-| price | Price of each home sold |
-| bedrooms | Number of bedrooms |
-| bathrooms | Number of bathrooms, where .5 accounts for a room with a toilet but no shower |
-| sqft_living | Square footage of the apartments interior living space |
-| sqft_lot | Square footage of the land space |
-| floors | Number of floors |
-| waterfront | A dummy variable for whether the apartment was overlooking the waterfront or not |
-| view | An index from 0 to 4 of how good the view of the property was |
-| condition | An index from 1 to 5 on the condition of the apartment, |
-| grade | An index from 1 to 13, where 1 |
-| sqft_above | The square footage of the interior housing space that is above ground level |
-| sqft_basement | The square footage of the interior housing space that is below ground level |
-| yr_built | The year the house was initially built |
-| yr_renovated | The year of the house’s last renovation |
-| zipcode | What zipcode area the house is in |
-| lat | Lattitude |
-| long | Longitude |
-| sqft_living15 | The square footage of interior housing living space for the nearest 15 neighbors |
-| sqft_lot15 | The square footage of the land lots of the nearest 15 neighbors |
+| id  | an Id that represents a (Store, Date) duple within the test set |
+| store | a unique Id for each store |
+| day_of_week | day of the week |
+| date | date |
+| sales | the turnover for any given day (this is what you are predicting)  |
+| customers |  the number of customers on a given day |
+| open | an indicator for whether the store was open: 0 = closed, 1 = open |
+| promo | indicates whether a store is running a promo on that day |
+| state_holiday | indicates a state holiday. Normally all stores, with few exceptions, are closed on state holidays. Note that all schools are closed on public holidays and weekends. a = public holiday, b = Easter holiday, c = Christmas, 0 = None |
+| school_holiday |  indicates if the (Store, Date) was affected by the closure of public schools |
+| store_type | differentiates between 4 different store models: a, b, c, d |
+| assortment | describes an assortment level: a = basic, b = extra, c = extended |
+| competition_distance | distance in meters to the nearest competitor store |
+| competition_open_since_month | gives the approximate year and month of the time the nearest competitor was opened |
+| competition_open_since_year | gives the approximate year and month of the time the nearest competitor was opened |
+| promo2 | Promo2 is a continuing and consecutive promotion for some stores: 0 = store is not participating, 1 = store is participating |
+| promo2_since_week | describes the year and calendar week when the store started participating in Promo2 |
+| promo2_since_year | describes the year and calendar week when the store started participating in Promo2 |
+| promo_interval | describes the consecutive intervals Promo2 is started, naming the months the promotion is started anew. E.g. "Feb,May,Aug,Nov" means each round starts in February, May, August, November of any given year for that store |
+
+
 - **Data cleanup**
     - All the duplicated id’s were removed, the more recent line was keeped
     - It was not found any outliers after that.
     
-## 5. Exploration
-The data analysis was driven by a dashboard created in Heroku app. This page is available for the business team pursue their own analysis using personalize filters and creating other insights for the project.
-
-[Access House Rocket Dashboard here](https://house-rocket-project-x54t.onrender.com/)
-
+## 5. Top 3 Insights
 For the scope of the analysis 10 hypothesis were created and tested:
 | Hypothesis | Result | Expected | Real | Action |
 | --- | --- | --- | --- | --- |
@@ -87,7 +96,7 @@ For the scope of the analysis 10 hypothesis were created and tested:
 | 09 - Homes with condition 3 or less sare 30% cheaper.             | False | 30% cheaper | 38.2% cheaper | Adjust |
 | 10 - Homes with a view are 20% more expensive. | False | 20% greater | 73.4% greater | Adjust |
 
-# 6. Top 3 Insights
+# 6. Machine Learning Model Applied
 
 After adjusting the hypothesys statements in the exploration data three insights
 
@@ -97,7 +106,11 @@ After adjusting the hypothesys statements in the exploration data three insights
 | 07 - Homes renovated in the past 5 years are 20% more expensive than homes who were not. | Buy homes renovated in the last 5 years. |
 | 06 - Homes with more than 1 floor are 40% more expensive than homes with only 1 floor. | Buy homes with more than 1 floors |
 
-# 7. Business Results
+# 7. Model Performance
+
+# 8. Deployment
+
+# 9. Business Results
 
 It was generated a table containing only the homes recommended to buy together with their selling prices. New columns were created.
 
@@ -109,19 +122,23 @@ It was generated a table containing only the homes recommended to buy together w
 | --- | --- | --- |
 | $ 4,079,586,744.00 | $ 4,832,502,714.60 | $ 752,915,970.60 |
 
-# 8. Conclusion
+# 10. Conclusion
 
 The solution presented is this project satisfied the company’s requirements. It was observed that having a view or waterfront, good condition, more floors and a recent renovation are characteristics that value real estate. And from the rejected hypothesis is interesting to pointed out that the price growth YoY is only 1.05%, so it is not a good strategy to wait a year or two to sell the house. It is know from the research that the main streategy of the iBuyers is to sell the homes as soon as possible.
 
-# 9. Next Steps
+# 11. Next Steps
 
-The next steep would be to calculate when is more profitable to sell the house. The project could be used as baseline comparison to a machine leaning model. Gather more business information about how homes are precify in these kind of company and take their insights from the dashboard created in session 5.
+- Separate train and test data since from the very beginning of the project to avoid data leakage.
+- Look for external data such as weather, national events, macro indicators and etc.
+- Try to group stores by region.
 
-# 10. References
+# 12. References
 
 [https://www.kaggle.com/competitions/rossmann-store-sales](https://www.kaggle.com/competitions/rossmann-store-sales)
 
 [https://www.theretailbulletin.com/retail-solutions/case-study-rossmann-successful-supply-chain-coronavirus-crisis-management-11-12-2020/](https://www.theretailbulletin.com/retail-solutions/case-study-rossmann-successful-supply-chain-coronavirus-crisis-management-11-12-2020/)
 
 [https://www.forbes.com/sites/metabrown/2015/07/29/what-it-needs-to-know-about-the-data-mining-process/?sh=6fe236bb515f](https://www.forbes.com/sites/metabrown/2015/07/29/what-it-needs-to-know-about-the-data-mining-process/?sh=6fe236bb515f)
+
+[https://www.kaggle.com/competitions/rossmann-store-sales/discussion/17229](https://www.kaggle.com/competitions/rossmann-store-sales/discussion/17229)
 
