@@ -95,27 +95,25 @@ A mindmap of hypothesis was created together with business team (marketing, sale
 
 <img src="img/MindMapHypothesis.png" style="zoom:100%;" />
 
+### 5.2. Insights
+
 From all hypothesis, it will only be taken in consideration those who have data available. Thus, hypothesis about customers or location were not added to the analysis. A total of 10 hypothesis we evaluated and at the end we could validate 5 important insights.
 
-| Nº | Insights |
-| --- | --- |
-| 01 - Homes with waterfront are 20% more expensive than homes without waterfront. |
-| <img src="img/MindMapHypothesis.png" style="zoom:100%;" /> |
-| 02 - Homes constructed before 1955 are 50% cheaper than homes constructed in 1955 and after. |
-| 03 - Homes without basement are 40% larger than homes with basement. |
-| 04 - The growth of home’s prices YoY (Year of Year) is 10%. |
-| 05 - Homes with 3 bathrooms has a growth MoM (Month over Month) of 15%. |
+| 01 - Stores with the closest competitors sell more |
+| <img src="img/hyp01.png" style="zoom:60%;" /> |
+| 02 - Stores with long time competitors sell less |
+| <img src="img/hyp02.png" style="zoom:60%;" /> |
+| 03 - Stores with longer time in promotion sell less |
+| <img src="img/hyp02.png" style="zoom:60%;" /> |
+| 04 - Stores sell less with by the year |
+| <img src="img/hyp04.png" style="zoom:60%;" /> |
+| 05 - Stores sell less in the second semester of the year. |
+| <img src="img/hyp05.png" style="zoom:60%;" /> |
 
 
 # 6. Machine Learning Model Applied
 
 After adjusting the hypothesys statements in the exploration data three insights
-
-| Insights | Action |
-| --- | --- |
-| 01 - Homes with waterfront are 20% more expensive than homes without waterfront. | Buy homes with waterfront. |
-| 07 - Homes renovated in the past 5 years are 20% more expensive than homes who were not. | Buy homes renovated in the last 5 years. |
-| 06 - Homes with more than 1 floor are 40% more expensive than homes with only 1 floor. | Buy homes with more than 1 floors |
 
 # 7. Model Performance
 
