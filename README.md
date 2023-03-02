@@ -18,33 +18,41 @@ As part of "DS em Produção" course in "Comunidade DS" this problem was increme
 | How much money company need to loan | Company expansions | What will be the sales day by day in each store for next six weeks? |
 
 ## 2. Business Assumptions
-- XXXX
+- Stores with no competition distance information does not have nearby competitors, so we will consider a distance to high to be relevant.
+- Some stores have a nearby competitor but do not have competition_since_month/year information. Since we consider the date when a new competitor is installed very important to this problem, we will consider this date the dale as sales date.
+- Same consideration above for columns promo2_since_week/year.
+- It was not been considered days with sales equal to 0 or store closed.
+- We considered that customers it is a variable unavailable in the moment of prediction, so it was removed from dataset.
 
 
 ## 3. Solution Strategy
 ### 3.1. Final Product
 - Report in a csv file with sales day by day for each store of the company.
-- A application that could be accessed by any store manager at any time and returns intantaneously the sales prediction for the store desired.
+- Telegram bot accessed by API
+
 ### 3.2. Tools
 - Python
 - Jupyter Notebook
 - Render
 - Telegram
+- Git
+- API Flask
+
 ### 3.3. Process
 The solution process is based in CRISP-DM methodology, which stands for Cross Industry Process - Data Mining. It was developed by a consortium of over 200 interested organizations and it is flexible to suit many analytical methods such as Data Science.Launched in 1999 it is until today by far the most widely-used analytics process standard. It is originally composed by six phases, but the version used here in this project it is extended to ten.
 
 <img src="img/CRISP-DS.png" style="zoom:100%;" />
 
-Step 01: Data description
-Step 02: Feature engineering
-Step 03: Variable filtering
-Step 04: Exploratory data analysis
-Step 05: Data preparation
-Step 06: Feature selection
-Step 07: Machine learning modelling
-Step 08: Hyperparameter fine tunning
-Step 09: Error evaluation and interpretation
-Step 10: Deploy model to production
+- Step 01: Data description: renaming columns, changing data types, fillout NA, descriptive statistics.
+- Step 02: Feature engineering	
+- Step 03: Variable filtering
+- Step 04: Exploratory data analysis
+- Step 05: Data preparation
+- Step 06: Feature selection
+- Step 07: Machine learning modelling
+- Step 08: Hyperparameter fine tunning
+- Step 09: Error evaluation and interpretation
+- Step 10: Deploy model to production
     
 # 4. Data Collect
 
@@ -77,24 +85,27 @@ Step 10: Deploy model to production
 | promo_interval | describes the consecutive intervals Promo2 is started, naming the months the promotion is started anew. E.g. "Feb,May,Aug,Nov" means each round starts in February, May, August, November of any given year for that store |
 
 
-- **Data cleanup**
-    - All the duplicated id’s were removed, the more recent line was keeped
-    - It was not found any outliers after that.
+- All rows missing competition_distance also missed competition_since_month/year
+- Column 'is_promo' is created to tells if the day is in promo or not.
     
-## 5. Top 3 Insights
-For the scope of the analysis 10 hypothesis were created and tested:
-| Hypothesis | Result | Expected | Real | Action |
-| --- | --- | --- | --- | --- |
-| 01 - Homes with waterfront are 20% more expensive than homes without waterfront. | False | 20% greater | 206% greater | Adjust |
-| 02 - Homes constructed before 1955 are 50% cheaper than homes constructed in 1955 and after. | False | 50% greater | 0.28% greater | Reject |
-| 03 - Homes without basement are 40% larger than homes with basement. | False | 40% greater | 22.8% greater | Adjust |
-| 04 - The growth of home’s prices YoY (Year of Year) is 10%. | False | 10% | 1.07% | Reject |
-| 05 - Homes with 3 bathrooms has a growth MoM (Month over Month) of 15%. | False | 15% | 0.16% | Reject |
-| 06 - Homes with more than 1 floor are 40% more expensive than homes with only 1 floor. | False | 40% greater | 17.5% greater | Adjust |
-| 07 - Homes renovated in the past 5 years are 20% more expensive than homes who were not. | False | 20% greater | 26.4% greater | Adjust |
-| 08 - The growth YoY of home’s prices that were never renovated is 10 units less. | False | 10% less | 12.6% less | Adjust |
-| 09 - Homes with condition 3 or less sare 30% cheaper.             | False | 30% cheaper | 38.2% cheaper | Adjust |
-| 10 - Homes with a view are 20% more expensive. | False | 20% greater | 73.4% greater | Adjust |
+## 5. Top 5 Insights
+
+### 5.1. Hypothesis Mindmap
+A mindmap of hypothesis was created together with business team (marketing, saled, product) to create hypothesis about the problem. This step is important to look for important insights that will help find the best solution.
+
+<img src="img/MindMapHypothesis.png" style="zoom:100%;" />
+
+From all hypothesis, it will only be taken in consideration those who have data available. Thus, hypothesis about customers or location were not added to the analysis. A total of 10 hypothesis we evaluated and at the end we could validate 5 important insights.
+
+| Nº | Insights |
+| --- | --- |
+| 01 - Homes with waterfront are 20% more expensive than homes without waterfront. |
+| <img src="img/MindMapHypothesis.png" style="zoom:100%;" /> |
+| 02 - Homes constructed before 1955 are 50% cheaper than homes constructed in 1955 and after. |
+| 03 - Homes without basement are 40% larger than homes with basement. |
+| 04 - The growth of home’s prices YoY (Year of Year) is 10%. |
+| 05 - Homes with 3 bathrooms has a growth MoM (Month over Month) of 15%. |
+
 
 # 6. Machine Learning Model Applied
 
@@ -131,6 +142,8 @@ The solution presented is this project satisfied the company’s requirements. I
 - Separate train and test data since from the very beginning of the project to avoid data leakage.
 - Look for external data such as weather, national events, macro indicators and etc.
 - Try to group stores by region.
+- Adjust competition_open_since_year/month to a single date for each store.
+
 
 # 12. References
 
