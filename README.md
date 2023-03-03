@@ -122,7 +122,7 @@ To calculated real performance, cross validation methos was used. Since is a tim
 
 After cross validation, the real model performance could be observed as below:
 
-<img src="img/comparison-algorithms.png" style="zoom:100%;" />
+<img src="img/comparison-algorithms.png" align="center" style="zoom:100%;" />
 
 Note that the Average Model have better performance than linear models, indicating that phenomenon is complex. Performance for Random Forest is slightly better than XGBoost Regressor, but the model chosen was XGBoost. The reason for this is simple, Random Forest generated a much larger model and for now the gain in memory use is better than a slightly increase in performance.
 
@@ -139,12 +139,11 @@ The strategy chosen for fine tunning was Random Search, since this is the first 
    		'colsample_bytree': 0.7,
     		'min_child_weight': 3
     		}
-'''
+'''m
 
 Training the model again with the hyperparameters and cross validation we could find the final performance of trained model. This trained model was saved by the method pickle to be send to production later.
 
-<tunned performance>
-<performance in test>
+<img src="img/tunned-performance.png" align="center" style="zoom:100%;" />
 
 # 8. Deployment
 
@@ -152,16 +151,15 @@ Training the model again with the hyperparameters and cross validation we could 
 
 Considering MAE the best metric to explain performance to business team in absolutes terms, we have calculated worst and best scenario by adding or subtracting MAE from prediction. MAPE is the MAE in percentagem that helps explain relative error.
 
-| Store | Prediction | Worst Scenario | Best Scenario | MAPE |
-| --- | --- | --- | --- | --- |
+<img src="img/sample-final-table.png" align="center" style="zoom:100%;" />
 
-[See entire table here in csv](table-selling-prices.csv)
+[See entire table here in csv](output/stores-prediction.csv)
 
 As explained in the business statement part of sales for next 6 weeks will be use as investment in company expansion. Comparing sales from XGBoost model and the average model using test data we have:
 
-|Total Sales Average Model | Total Sales Final Model | Difference |
-| --- | --- | --- |
-
+|Total Sales Baseline Model | Total Sales XGB Model | Real Sales | Difference Baseline | Difference XGB model |
+| --- | --- | --- | --- | --- |
+| $276,978,801.43 | $ 286,922,284.67 | $ 289,571,750.0 | | |
 
 Thus, ...
 
