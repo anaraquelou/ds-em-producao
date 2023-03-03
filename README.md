@@ -118,20 +118,29 @@ A total of five models were tested:
 
 To calculated real performance, cross validation methos was used. Since is a time based problem, we could not separate validation and training parts randomly. Thus, the final six weeks of data were separate for test only, and the rest were used in cross validation. The K number is the number of parts the cross validation data is separated. Note that for every unit added in K number the previous validation data is added to training and a new six weeks of data is agregated for validation.
 
-<cross validation image>
+<img src="img/cross-validation.png" style="zoom:100%;" />
 
 After cross validation, the real model performance could be observed as below:
 
-<all models performance>
+<img src="img/compartison-algorithms.png" style="zoom:100%;" />
 
 Note that the Average Model have better performance than linear models, indicating that phenomenon is complex. Performance for Random Forest is slightly better than XGBoost Regressor, but the model chosen was XGBoost. The reason for this is simple, Random Forest generated a much larger model and for now the gain in memory use is better than a slightly increase in performance.
 
 
 # 7. Model Performance
 
-The strategy chosen for fine tunning was Random search, since this is the first CRISP cycle and we want to deliver a first version of solution as soon as posible.
+The strategy chosen for fine tunning was Random Search, since this is the first CRISP cycle and we want to deliver a first version of solution as soon as posible.
 
-<parameters code>
+'''
+param_tuned = { 
+		'n_estimators': 3000,
+		'eta': 0.03,
+ 		'max_depth': 5,
+  		'subsample': 0.7,
+   		'colsample_bytree': 0.7,
+    		'min_child_weight': 3
+    		}
+'''
 
 Training the model again with the hyperparameters and cross validation we could find the final performance of trained model. This trained model was saved by the method pickle to be send to production later.
 
