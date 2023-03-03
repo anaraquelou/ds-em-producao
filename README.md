@@ -2,7 +2,7 @@
 
 # Rossmann Sales Prediction Project
 
-Insights Project
+Regression Project
 
 ## 1. Business Problem
 Sales forecasting refers to the process of estimating demand for or sales of over a specific period of time. It can improve financial performance of any kind of business and in a major company as Rossmann it is particular import because any variation in demand could impact all stores at once. A accurate sales forecast could reduce stock and wast, as well as in-store availability issues.
@@ -38,16 +38,16 @@ The solution process is based in CRISP-DM methodology, which stands for Cross In
 
 <img src="img/CRISP-DS.png" style="zoom:100%;" />
 
-* Step 01: Data description: renaming columns, changing data types, fillout NA, descriptive statistics.
-* Step 02: Feature engineering: create hypothesis, derivate new features
-* Step 03: Variable filtering: remove unnecessary rows and columns and not available features.
-* Step 04: Exploratory data analysis: univariate, bivariate and multivariate analysis, validate hypothesis.
-* Step 05: Data preparation: normalization, rescaling, transformation
-* Step 06: Feature selection: choose method to select features and apply
-* Step 07: Machine learning modelling: test different models, apply cross validation and compare real performance.
-* Step 08: Hyperparameter fine tunning: make a choice the paramaters that optimized the model.
-* Step 09: Error evaluation and interpretation:
-* Step 10: Deploy model to production:
+* **Step 01:** Data description: renaming columns, changing data types, fillout NA, descriptive statistics.
+* **Step 02:** Feature engineering: create hypothesis, derivate new features
+* **Step 03:** Variable filtering: remove unnecessary rows and columns and not available features.
+* **Step 04:** Exploratory data analysis: univariate, bivariate and multivariate analysis, validate hypothesis.
+* **Step 05:** Data preparation: normalization, rescaling, transformation
+* **Step 06:** Feature selection: choose method to select features and apply
+* **Step 07:** Machine learning modelling: test different models, apply cross validation and compare real performance.
+* **Step 08:** Hyperparameter fine tunning: make a choice the paramaters that optimized the model.
+* **Step 09:** Error evaluation and interpretation:
+* **Step 10:** Deploy model to production:
     
 # 4. Data Collect
 
@@ -116,9 +116,13 @@ A total of five models were tested:
 * Random Forest
 * XGBoost
 
+To calculated real performance, cross validation methos was used. Since is a time based problem, we could not separate validation and training parts randomly. Thus, the final six weeks of data were separate for test only, and the rest were used in cross validation. The K number is the number of parts the cross validation data is separated. Note that for every unit added in K number the previous validation data is added to training and a new six weeks of data is agregated for validation.
+
+<cross validation image>
+
 After cross validation, the real model performance could be observed as below:
 
-<table here>
+<all models performance>
 
 Note that the Average Model have better performance than linear models, indicating that phenomenon is complex. Performance for Random Forest is slightly better than XGBoost Regressor, but the model chosen was XGBoost. The reason for this is simple, Random Forest generated a much larger model and for now the gain in memory use is better than a slightly increase in performance.
 
@@ -131,19 +135,25 @@ The strategy chosen for fine tunning was Random search, since this is the first 
 
 Training the model again with the hyperparameters and cross validation we could find the final performance of trained model. This trained model was saved by the method pickle to be send to production later.
 
-<table of performance>
+<tunned performance>
+<performance in test>
 
 # 8. Deployment
 
 # 9. Business Results
 
-
-[See entire table here in csv](table-selling-prices.csv)
+Considering MAE the best metric to explain performance to business team in absolutes terms, we have calculated worst and best scenario by adding or subtracting MAE from prediction. MAPE is the MAE in percentagem that helps explain relative error.
 
 | Store | Prediction | Worst Scenario | Best Scenario | MAPE |
 | --- | --- | --- | --- | --- |
 
-As explained in the business statement part of sales for next 6 weeks will be use as investment in company expansion. Comparing sales from XGBoost model and the average model we have:
+[See entire table here in csv](table-selling-prices.csv)
+
+As explained in the business statement part of sales for next 6 weeks will be use as investment in company expansion. Comparing sales from XGBoost model and the average model using test data we have:
+
+|Total Sales Average Model | Total Sales Final Model | Difference |
+| --- | --- | --- |
+
 
 Thus, ...
 
