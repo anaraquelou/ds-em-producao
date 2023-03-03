@@ -11,7 +11,7 @@ Rossmann is one of the largests drug store chains in Europe owning over 3,000 st
 
 As part of "DS em Produção" course in "Comunidade DS" this problem was incremented with some more **fictional data** as is descripted below:
 
-"Pretend you are a data scientist in Rossmann company. Suddenly a lot of messages pops up at your screen, reading all you figured out they all have the same demading: the store sales prediction for 6 weeks in advance. It seems all store managers were asked by the CFO of the company to have this prediction by the end of the month. You go talk to the CFO to undertand what is the real problem and if this prediction it is the bst solution. CFO tells you that Rossmann is going throught an expansion and needs to estimate accurately the amount of money they will loan from banks, they plan to use the part of the income from the next 6 weeks as part of the expansion investment. After that you agreed that the prediction makes sense and you can create a unique solution for all the stores. He went thrilled by the idea and also ask you to create a way the solution could be accessed by any store manager at any time and returns intantaneously the sales prediction for the store, so they can use in other occasions."
+>Pretend you are a data scientist in Rossmann company. Suddenly a lot of messages pops up at your screen, reading all you figured 	out they all have the same demading: the store sales prediction for 6 weeks in advance. It seems all store managers were asked by the CFO of the company to have this prediction by the end of the month. You go talk to the CFO to undertand what is the real problem and if this prediction it is the bst solution. CFO tells you that Rossmann is going throught an expansion and needs to estimate accurately the amount of money they will loan from banks, they plan to use the part of the income from the next 6 weeks as part of the expansion investment. After that you agreed that the prediction makes sense and you can create a unique solution for all the stores. He went thrilled by the idea and also ask you to create a way the solution could be accessed by any store manager at any time and returns intantaneously the sales prediction for the store, so they can use in other occasions.
 
 | Problem | Root Cause | Main Question |
 | --- | --- | --- |
@@ -31,28 +31,23 @@ As part of "DS em Produção" course in "Comunidade DS" this problem was increme
 - Telegram bot accessed by API
 
 ### 3.2. Tools
-- Python
-- Jupyter Notebook
-- Render
-- Telegram
-- Git
-- API Flask
+- Python, Jupyter Notebook, Render, Telegram, Git, API Flask.
 
 ### 3.3. Process
 The solution process is based in CRISP-DM methodology, which stands for Cross Industry Process - Data Mining. It was developed by a consortium of over 200 interested organizations and it is flexible to suit many analytical methods such as Data Science.Launched in 1999 it is until today by far the most widely-used analytics process standard. It is originally composed by six phases, but the version used here in this project it is extended to ten.
 
 <img src="img/CRISP-DS.png" style="zoom:100%;" />
 
-- Step 01: Data description: renaming columns, changing data types, fillout NA, descriptive statistics.
-- Step 02: Feature engineering	
-- Step 03: Variable filtering
-- Step 04: Exploratory data analysis
-- Step 05: Data preparation
-- Step 06: Feature selection
-- Step 07: Machine learning modelling
-- Step 08: Hyperparameter fine tunning
-- Step 09: Error evaluation and interpretation
-- Step 10: Deploy model to production
+* Step 01: Data description: renaming columns, changing data types, fillout NA, descriptive statistics.
+* Step 02: Feature engineering: create hypothesis, derivate new features
+* Step 03: Variable filtering: remove unnecessary rows and columns and not available features.
+* Step 04: Exploratory data analysis: univariate, bivariate and multivariate analysis, validate hypothesis.
+* Step 05: Data preparation: normalization, rescaling, transformation
+* Step 06: Feature selection: choose method to select features and apply
+* Step 07: Machine learning modelling: test different models, apply cross validation and compare real performance.
+* Step 08: Hyperparameter fine tunning: make a choice the paramaters that optimized the model.
+* Step 09: Error evaluation and interpretation:
+* Step 10: Deploy model to production:
     
 # 4. Data Collect
 
@@ -99,42 +94,62 @@ A mindmap of hypothesis was created together with business team (marketing, sale
 
 From all hypothesis, it will only be taken in consideration those who have data available. Thus, hypothesis about customers or location were not added to the analysis. A total of 10 hypothesis we evaluated and at the end we could validate 5 important insights.
 
-| Hypothesis 01 - Stores with the closest competitors sell more |
+| Insight 01 - Stores with the closest competitors sell more |
 | --- |
 | <img src="img/hyp01.png" style="zoom:60%;" /> |
 
-| Hypothesis 02 - Stores with long time competitors sell less | Hypothesis 03 - Stores with longer time in promotion sell less |
+| Insight 02 - Stores with long time competitors sell less | Insight 03 - Stores with longer time in promotion sell less |
 | --- | --- |
 | <img src="img/hyp02.png" style="zoom:60%;" /> | <img src="img/hyp03.png" style="zoom:60%;" /> |
 
-| Hypothesis 04 - Stores sell less with by the year | Hypothesis 05 - Stores sell less in the second semester of the year. |
+| Insight 04 - Stores sell less with by the year | Insight 05 - Stores sell less in the second semester of the year. |
 | --- | --- |
 | <img src="img/hyp04.png" style="zoom:60%;" /> | <img src="img/hyp05.png" style="zoom:60%;" /> |
 
 
 # 6. Machine Learning Model Applied
 
-After adjusting the hypothesys statements in the exploration data three insights
+A total of five models were tested:
+* Average
+* Linear Regression
+* Lasso
+* Random Forest
+* XGBoost
+
+After cross validation, the real model performance could be observed as below:
+
+<table here>
+
+Note that the Average Model have better performance than linear models, indicating that phenomenon is complex. Performance for Random Forest is slightly better than XGBoost Regressor, but the model chosen was XGBoost. The reason for this is simple, Random Forest generated a much larger model and for now the gain in memory use is better than a slightly increase in performance.
+
 
 # 7. Model Performance
+
+The strategy chosen for fine tunning was Random search, since this is the first CRISP cycle and we want to deliver a first version of solution as soon as posible.
+
+<parameters code>
+
+Training the model again with the hyperparameters and cross validation we could find the final performance of trained model. This trained model was saved by the method pickle to be send to production later.
+
+<table of performance>
 
 # 8. Deployment
 
 # 9. Business Results
 
-It was generated a table containing only the homes recommended to buy together with their selling prices. New columns were created.
-
-<img src="final-table-img.png" style="zoom:100%;" />
 
 [See entire table here in csv](table-selling-prices.csv)
 
-| Total costs on home purchases | Total income from home sales | Total profit |
-| --- | --- | --- |
-| $ 4,079,586,744.00 | $ 4,832,502,714.60 | $ 752,915,970.60 |
+| Store | Prediction | Worst Scenario | Best Scenario | MAPE |
+| --- | --- | --- | --- | --- |
+
+As explained in the business statement part of sales for next 6 weeks will be use as investment in company expansion. Comparing sales from XGBoost model and the average model we have:
+
+Thus, ...
+
 
 # 10. Conclusion
-
-The solution presented is this project satisfied the company’s requirements. It was observed that having a view or waterfront, good condition, more floors and a recent renovation are characteristics that value real estate. And from the rejected hypothesis is interesting to pointed out that the price growth YoY is only 1.05%, so it is not a good strategy to wait a year or two to sell the house. It is know from the research that the main streategy of the iBuyers is to sell the homes as soon as possible.
+We can conclude that daily sales in Rossmann stores can be predicted by the model trained in this project and business team has validated the model to go to production. The phenomenon is time based and it was adapted for a forest regressor algorithm, the trained mode has achieved an 0000 RMSE and 0000 RMSE with tested data. The total amount of money the project could save if is implementeded is XXX. Some valueable insights can be further checked for other improvements, such as the extended promotions.
 
 # 11. Next Steps
 
@@ -142,6 +157,7 @@ The solution presented is this project satisfied the company’s requirements. I
 - Look for external data such as weather, national events, macro indicators and etc.
 - Try to group stores by region.
 - Adjust competition_open_since_year/month to a single date for each store.
+- Try bayesian search method in fine tunning step
 
 
 # 12. References
