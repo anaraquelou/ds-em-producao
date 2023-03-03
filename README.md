@@ -122,18 +122,17 @@ To calculated real performance, cross validation methos was used. Since is a tim
 
 After cross validation, the real model performance could be observed as below:
 
-<img src="img/compartison-algorithms.png" style="zoom:100%;" />
+<img src="img/comparison-algorithms.png" style="zoom:100%;" />
 
 Note that the Average Model have better performance than linear models, indicating that phenomenon is complex. Performance for Random Forest is slightly better than XGBoost Regressor, but the model chosen was XGBoost. The reason for this is simple, Random Forest generated a much larger model and for now the gain in memory use is better than a slightly increase in performance.
 
 
 # 7. Model Performance
 
-The strategy chosen for fine tunning was Random Search, since this is the first CRISP cycle and we want to deliver a first version of solution as soon as posible.
+The strategy chosen for fine tunning was Random Search, since this is the first CRISP cycle and we want to deliver a first version of solution as soon as posible. After five iterations the best set of parameters were found:
 
-'''
-param_tuned = { 
-		'n_estimators': 3000,
+'''param_tuned = { '''
+		''''n_estimators': 3000,'''
 		'eta': 0.03,
  		'max_depth': 5,
   		'subsample': 0.7,
