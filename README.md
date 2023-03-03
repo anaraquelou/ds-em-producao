@@ -38,16 +38,16 @@ The solution process is based in CRISP-DM methodology, which stands for Cross In
 
 <img src="img/CRISP-DS.png" style="zoom:100%;" />
 
-* **Step 01:** Data description: renaming columns, changing data types, fillout NA, descriptive statistics.
-* **Step 02:** Feature engineering: create hypothesis, derivate new features
+* **Step 01:** Data description: clean data and use descriptive statistics to identify errors and unusual behaviours.
+* **Step 02:** Feature engineering: derivate new attributes to better represent problem.
 * **Step 03:** Variable filtering: remove unnecessary rows and columns and not available features.
-* **Step 04:** Exploratory data analysis: univariate, bivariate and multivariate analysis, validate hypothesis.
-* **Step 05:** Data preparation: normalization, rescaling, transformation
-* **Step 06:** Feature selection: choose method to select features and apply
+* **Step 04:** Exploratory data analysis: find insights and understand the impact of variables on model learning.
+* **Step 05:** Data preparation: prepare the data so that the Machine Learning models can learn the specific behavior.
+* **Step 06:** Feature selection: selection of the most significant attributes for training the model.
 * **Step 07:** Machine learning modelling: test different models, apply cross validation and compare real performance.
-* **Step 08:** Hyperparameter fine tunning: make a choice the paramaters that optimized the model.
-* **Step 09:** Error evaluation and interpretation:
-* **Step 10:** Deploy model to production:
+* **Step 08:** Hyperparameter fine tunning: choose the best values for each of the parameters of the model selected from the previous step.
+* **Step 09:** Error evaluation and interpretation: convert the performance of the Machine Learning model into a business result.
+* **Step 10:** Deploy model to production: publish the model in a cloud environment so that other people or services can use the results to improve the business decision.
     
 # 4. Data Collect
 
@@ -131,21 +131,25 @@ Note that the Average Model have better performance than linear models, indicati
 
 The strategy chosen for fine tunning was Random Search, since this is the first CRISP cycle and we want to deliver a first version of solution as soon as posible. After five iterations the best set of parameters were found:
 
-'''param_tuned = { '''
-		''''n_estimators': 3000,'''
+```
+param_tuned = { 
+		n_estimators': 3000,
 		'eta': 0.03,
  		'max_depth': 5,
   		'subsample': 0.7,
    		'colsample_bytree': 0.7,
     		'min_child_weight': 3
     		}
-'''m
+```
 
-Training the model again with the hyperparameters and cross validation we could find the final performance of trained model. This trained model was saved by the method pickle to be send to production later.
+Training the model again with the hyperparameters and cross validation we could find the final performance of trained model. This trained model was saved by pickle module to be send to production later.
 
 <img src="img/tunned-performance.png" align="center" style="zoom:100%;" />
 
 # 8. Deployment
+After validation by business team the model was send to production, which means the model need to be available to final user. Throughout an API called 'handler.py created with Flask module, the model saved in previous step and the Rossmann class are requested. Rossmann class is responsable for data preparation and transformation. Deployment arquitecture is represented below.
+
+<img src="img/deploy-arquitecture.png" align="center" style="zoom:100%;" />
 
 # 9. Business Results
 
@@ -159,9 +163,9 @@ As explained in the business statement part of sales for next 6 weeks will be us
 
 |Total Sales Baseline Model | Total Sales XGB Model | Real Sales | Difference Baseline | Difference XGB model |
 | --- | --- | --- | --- | --- |
-| $276,978,801.43 | $ 286,922,284.67 | $ 289,571,750.0 | | |
+| $276,978,801.43 | $ 286,922,284.67 | $ 289,571,750.00 | $ 12,592,948.57 | $ 2,649,466.00 |
 
-Thus, ...
+Thus, the differente between the baseline model representing how sales would be calculated if the model did not exist and de model's prediction will be $ 9,943,482.57. Assuming all sales for the next 6 weeks would be used as the expansion investment, this will be the amount of money company will avoid to loan from the bank.
 
 
 # 10. Conclusion
