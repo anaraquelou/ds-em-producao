@@ -149,7 +149,7 @@ Training the model again with the hyperparameters and cross validation we could 
 # 8. Deployment
 After validation by business team the model was send to production, which means the model need to be available to final user. Throughout an API called 'handler.py created with Flask module, the model saved in previous step and the Rossmann class are requested. Rossmann class is responsable for data preparation and transformation. Deployment arquitecture is represented below.
 
-<img src="img/deploy-arquitecture.png" align="center" style="zoom:100%;" />
+<img src="img/deploy-arquitecture.png" align="center" style="zoom:75%;" />
 
 # 9. Business Results
 
@@ -163,13 +163,13 @@ As explained in the business statement part of sales for next 6 weeks will be us
 
 |Total Sales Baseline Model | Total Sales XGB Model | Real Sales | Difference Baseline | Difference XGB model |
 | --- | --- | --- | --- | --- |
-| $276,978,801.43 | $ 286,922,284.67 | $ 289,571,750.00 | $ 12,592,948.57 | $ 2,649,466.00 |
+| $276,978,801.43 | $286,922,284.67 | $289,571,750.00 | $12,592,948.57 | $2,649,466.00 |
 
-Thus, the differente between the baseline model representing how sales would be calculated if the model did not exist and de model's prediction will be $ 9,943,482.57. Assuming all sales for the next 6 weeks would be used as the expansion investment, this will be the amount of money company will avoid to loan from the bank.
+Thus, the differente between the baseline model representing how sales would be calculated if the model did not exist and de model's prediction will be $9,943,482.57. Assuming all sales for the next 6 weeks would be used as the expansion investment, this will be the amount of money company will avoid to loan from the bank.
 
 
 # 10. Conclusion
-We can conclude that daily sales in Rossmann stores can be predicted by the model trained in this project and business team has validated the model to go to production. The phenomenon is time based and it was adapted for a forest regressor algorithm, the trained mode has achieved an 0000 RMSE and 0000 RMSE with tested data. The total amount of money the project could save if is implementeded is XXX. Some valueable insights can be further checked for other improvements, such as the extended promotions.
+We can conclude that daily sales in Rossmann stores can be predicted by the model trained in this project and business team has validated the model to go to production. The phenomenon is time based and it was adapted for a forest regressor algorithm, the trained mode has achieved an 958.72 RMSE after cross validation and fine tuning. The total amount of money the project could save from loan if is implementeded would be $9,943,482.57. Some valuable insights can be further checked for other improvements, such as the extended promotions.
 
 # 11. Next Steps
 
