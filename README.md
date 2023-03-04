@@ -156,7 +156,7 @@ Training the model again with the hyperparameters and cross validation we could 
 
 Plotting the feature importance, we can also observed what are the variables more important to the model.
 
-<img src="img/feature-performance.png" align="center" style="zoom:100%;" />
+<img src="img/feature-importance.png" align="center" style="zoom:100%;" />
 
 # 8. Deployment
 After validation by business team the model was send to production, which means the model need to be available to final user. Throughout an API called 'handler.py created with Flask module, the model saved in previous step and the Rossmann class are requested. Rossmann class is responsable for data preparation and transformation. Deployment arquitecture is represented below.
