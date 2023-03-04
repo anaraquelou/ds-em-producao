@@ -151,6 +151,10 @@ After validation by business team the model was send to production, which means 
 
 <img src="img/deploy-arquitecture.png" align="center" style="zoom:75%;" />
 
+Below you can see the telegram app working:
+
+<img src="img/telegram-app.mp4" align="center" style="zoom:75%;" />
+
 # 9. Business Results
 
 Considering MAE the best metric to explain performance to business team in absolutes terms, we have calculated worst and best scenario by adding or subtracting MAE from prediction. MAPE is the MAE in percentagem that helps explain relative error.
