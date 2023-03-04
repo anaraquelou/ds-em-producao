@@ -193,7 +193,8 @@ We can conclude that daily sales in Rossmann stores can be predicted by the mode
 - Look for external data such as weather, national events, macro indicators and etc.
 - Try to group stores by region.
 - Adjust competition_open_since_year/month to a single date for each store.
-- Try bayesian search method in fine tunning step
+- Try bayesian search method in fine tunning step.
+- Add a daily chart together with the prevision in telegram app.
 
 
 # 12. References
