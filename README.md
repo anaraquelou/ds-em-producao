@@ -109,6 +109,14 @@ From all hypothesis, it will only be taken in consideration those who have data 
 
 # 6. Machine Learning Model Applied
 
+After modelling data using encoding and transformation, Boruta was used as a method of feature selection. The variables relevant to model according to Boruta were.
+
+['store', 'promo', 'store_type', 'assortment', 'competition_distance', 'competition_open_since_month',
+ 'competition_open_since_year', 'promo2', 'promo2_since_week', 'promo2_since_year', 'competition_time_month',
+ 'promo_time_week', 'day_of_week_sin', 'day_of_week_cos', 'month_cos', 'day_sin', 'day_cos', 'week_of_year_cos']
+
+We also add 'month_sin' and 'week_of_year_sin' since they are related to their cosseno variables pairs.
+
 A total of five models were tested:
 * Average
 * Linear Regression
@@ -146,6 +154,10 @@ Training the model again with the hyperparameters and cross validation we could 
 
 <img src="img/tunned-performance.png" align="center" style="zoom:100%;" />
 
+Plotting the feature importance, we can also observed what are the variables more important to the model.
+
+<img src="img/feature-performance.png" align="center" style="zoom:100%;" />
+
 # 8. Deployment
 After validation by business team the model was send to production, which means the model need to be available to final user. Throughout an API called 'handler.py created with Flask module, the model saved in previous step and the Rossmann class are requested. Rossmann class is responsable for data preparation and transformation. Deployment arquitecture is represented below.
 
@@ -153,7 +165,7 @@ After validation by business team the model was send to production, which means 
 
 Below you can see the telegram app working:
 
-<img src="img/telegram-app.mp4" align="center" style="zoom:75%;" />
+<img src="img/telegram-app.gif" align="center" style="zoom:75%;" />
 
 # 9. Business Results
 
